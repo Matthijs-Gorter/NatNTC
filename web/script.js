@@ -2,6 +2,51 @@
 const video1 = document.getElementById("cWVideo");
 const video2 = document.getElementById("bSVideo");
 
+document.addEventListener("keydown", function (event) {
+    if (event.code === "Comma") { // Handle "<" key press
+        if (document.activeElement === video1) {
+            event.preventDefault();
+            video1.currentTime -= 1 / (30 * video1.playbackRate); // divide with 30 becuse 30 fps
+        } else if (document.activeElement === video2) {
+            event.preventDefault();
+            video2.currentTime -= 1 / (30 * video2.playbackRate);
+        }
+    } else if (event.code === "Period") { // Handle ">" key press
+        if (document.activeElement === video1) {
+            event.preventDefault();
+            video1.currentTime += 1 / (30 * video1.playbackRate);
+        } else if (document.activeElement === video2) {
+            event.preventDefault();
+            video2.currentTime += 1 / (30 * video2.playbackRate);
+        }
+    } else if (event.key === "k" || event.code === "Space") { // Handle spacebar press
+        if (document.activeElement === video1) {
+            event.preventDefault();
+            if (video1.paused) {
+                video1.play();
+            } else {
+                video1.pause();
+            }
+        } else if (document.activeElement === video2) {
+            event.preventDefault();
+            if (video2.paused) {
+                video2.play();
+            } else {
+                video2.pause();
+            }
+        }
+    }
+});
+
+video1.addEventListener("click", function () {
+    video1.focus();
+});
+
+video2.addEventListener("click", function () {
+    video2.focus();
+});
+
+
 // Generate table of contents
 document.addEventListener("DOMContentLoaded", function () {
   const tocContainer = document.getElementById("toc");
