@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PO Natuurkunde Temperatuursensor</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="prism.css">
+	<link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body class="line-numbers">
+	<img id="header-img"
+		src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+		alt="" />
+	<h1 id="title" class="display-3">PO Natuurkunde Temperatuursensor</h1>
+	<!-- <p id="date" class="lead">28-05-2023</p> -->
+	<div id="info">
+		<p class="lead fs-6"><strong>Datum:</strong> 28-05-2023</p>
+		<p class="lead fs-6"><strong>Vak:</strong> Natuurkunde</p>
+		<p class="lead fs-6"><strong>Docent:</strong> G. de Vries</p>
+		<p class="lead fs-6"><strong>Door:</strong> Pepijn van Iperen, Jasper Hazebroek, Matthijs Gorter</p>
+		<a href="https://unsplash.com/photos/3GZi6OpSDcY" style="color: white !important">
+			<p class="lead fs-6"><strong>Afbeelding:</strong> Nicolas Thomas</p>
+		</a>
+	</div>
+	<main>
+
+		<div class="split">
+			<div id="inhoud-container">
+				<div id="inhoud">
+					<h2>Inhoud</h2>
+					<hr>
+					<div id="toc"></div>
+				</div>
+			</div>
+			<div class="container">
+				<h2 class="display-4 fs-1">Inleiding en Theorie</h2>
+				<div>
+					<hr>
+
+					<p>
+						In deze practicumopdracht gaan we een elektronische temperatuursensor bouwen die zo nauwkeurig
+						mogelijk is in het bereik van 10 tot 80 graden Celsius.
+					</p>
+
+					<p>
+						Een sensor is een instrument dat een natuurkundige grootheid, zoals temperatuur, druk of
+						geluidsniveau, omzet in elektrische spanning. De grafiek van de sensorspanning tegenover de
+						temperatuur wordt de ijkgrafiek van de sensor genoemd. Een NTC is een temperatuursensor waarbij
+						een
+						hoge temperatuur een lage weerstand heeft en bij een lagere temperatuur een hoge weerstand. Het
+						verband tussen de temperatuur van een NTC en de spanning is vaak niet-lineair, wat onhandig is
+						wanneer je de NTC wilt gebruiken voor bijvoorbeeld het maken van een nauwkeurige temperatuur
+						sensor.
+					</p>
+
+					<p>
+						Om dit probleem aan te pakken, zetten we de NTC in serie met een constante weerstand en meten we
+						vervolgens de spanning over deze weerstand. Als we dan de juiste weerstand hebben, kunnen we een
+						verband krijgen dat bijna helemaal lineair is.
+					</p>
+
+					<p>
+						We beginnen dit practicum met het bepalen van de ijkgrafiek van onze NTC, zodat we later kunnen
+						simuleren hoe de waardes veranderen wanneer de bronspanning verandert en wanneer er een
+						weerstand in serie is geschakeld met de NTC. Na de simulatie kunnen we bepalen wat de ideale
+						waarden zijn voor de constante weerstand en de bronspanning.
+					</p>
+				</div>
+				<h2 class="display-4 fs-1">Ontwerp eisen aan de Sensor</h2>
+				<div>
+					<hr>
+					<p>Nauwkeurigheid: De sensor moet zeer nauwkeurig werken in het temperatuurbereik van 10 tot 80
+						graden Celsius. We willen een lineair verband tussen de temperatuur van de NTC en de spanning
+						over de
+						constante weerstand, zodat we de sensor nauwkeurig en betrouwbaar is.</p>
+					<p>Gevoeligheid: De sensor moet een hoge gevoeligheid hebben. Dit betekent dat zelfs kleine
+						temperatuurstijgingen een significante verandering in de spanning moeten veroorzaken, waardoor
+						de sensor gemakkelijk af te lezen is. We moeten er echter voor zorgen dat de gevoeligheid niet
+						te hoog is, want de spanning over de constante weerstand mag niet hoger zijn dan 5 volt.</p>
+				</div>
+				<h2 class="display-4 fs-1">NTC-karakteristiek bepalen</h2>
+				<div>
+					<hr>
+					<div class="row">
+						<div class="col-md-7">
+							<h3>Materialen:</h3>
+							<ul>
+								<li>NTC</li>
+								<li>heet water</li>
+								<li>koud water</li>
+								<li>ijsblokje</li>
+								<li>ampèremeter</li>
+								<li>voltmeter</li>
+								<li>spanningsbron</li>
+								<li>thermometer</li>
+								<li>schakeldraden</li>
+								<li>bekerglas</li>
+								<li>waterkoker</li>
+							</ul>
+							<h3>Methode:</h3>
+							<p>
+								Eerst wordt er een schakeling zoals weergegeven in figuur 1 gemaakt. Vervolgens wordt de
+								NTC in een bakje met kokend water geplaatst. Een vaste spanning wordt door de NTC geleid
+								met een bronspanning van 6 volt. Zodra het water een temperatuur van 80 graden bereikt,
+								wordt telkens wanneer de temperatuur met 5 graden daalt, de hoeveelheid ampère en volt
+								genoteerd in een tabel. Rond kamertemperatuur zal de temperatuur van het water zeer
+								langzaam of helemaal niet verder dalen. Wanneer dit gebeurt, worden er ijsblokjes aan
+								het water toegevoegd en wordt bijna al het water weggegoten. Dit stelt het water in
+								staat om verder af te koelen tot een minimum van 5 graden, wat ons laatste meetpunt was.
+							</p>
+						</div>
+						<div class="col-md-3">
+							<img src="img/fig1.png" alt="Figuur 1: Meetopstelling voor bepalen van NTC-karakteristiek"
+								class="img-fluid">
+							<p class="mt-2">
+								<em>Figuur 1: Meetopstelling voor bepalen van NTC-karakteristiek</em>
+							</p>
+						</div>
+					</div>
+					<h3>Resultaten: Tabel Meting NTC karakteristiek</h3>
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th>Temperatuur in graden Celsius (°C)</th>
+									<th>Stroomsterkte in Ampère (A)</th>
+									<th>Weerstand in Ohm (Ω)</th>
+								</tr>
+							</thead>
+							<tbody class="table-group-divider">
+								<tr>
+									<td>80</td>
+									<td>0.045</td>
+									<td>136.00</td>
+								</tr>
+								<tr>
+									<td>75</td>
+									<td>0.038</td>
+									<td>161.05</td>
+								</tr>
+								<tr>
+									<td>70</td>
+									<td>0.037</td>
+									<td>165.41</td>
+								</tr>
+								<tr>
+									<td>65</td>
+									<td>0.030</td>
+									<td>204.00</td>
+								</tr>
+								<tr>
+									<td>60</td>
+									<td>0.024</td>
+									<td>255.00</td>
+								</tr>
+								<tr>
+									<td>55</td>
+									<td>0.019</td>
+									<td>322.11</td>
+								</tr>
+								<tr>
+									<td>50</td>
+									<td>0.016</td>
+									<td>382.50</td>
+								</tr>
+								<tr>
+									<td>45</td>
+									<td>0.014</td>
+									<td>437.14</td>
+								</tr>
+								<tr>
+									<td>40</td>
+									<td>0.012</td>
+									<td>510.00</td>
+								</tr>
+								<tr>
+									<td>35</td>
+									<td>0.010</td>
+									<td>612.00</td>
+								</tr>
+								<tr>
+									<td>30</td>
+									<td>0.010</td>
+									<td>612.00</td>
+								</tr>
+								<tr>
+									<td>25</td>
+									<td>0.0090</td>
+									<td>680.00</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td>0.0080</td>
+									<td>765.00</td>
+								</tr>
+								<tr>
+									<td>15</td>
+									<td>0.0070</td>
+									<td>874.29</td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>0.0070</td>
+									<td>874.29</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>0.0060</td>
+									<td>1020.00</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="mt-2">
+						<em>Figuur 2: Meetopstelling voor bepalen van NTC-karakteristiek</em>
+					</p>
+					<img src="img/fig3.png" alt="Figuur 1: Meetopstelling voor bepalen van NTC-karakteristiek"
+						class="img-fluid">
+					<p class="mt-2">
+						<em>Figuur 3: Grafiek van de metingen uit figuur 2 die van het verband tussen de weerstand en
+							temperatuur van de NTC weergeven</em>
+					</p>
+				</div>
+				<h2 class="display-4 fs-1">Ontwerp van de sensor</h2>
+				<div>
+					<hr>
+					<h3>Formules</h3>
+					<div>
+						<p>Om de optimale constante weerstand en bronspanning te kunnen bepalen, hebben wij een paar
+							formules
+							omgeschreven en
+							samen gevoegd, deze zijn geïntegreerd in de stappen 1 tot 4:</p>
+
+						<b>stap 1:</b>
+						<p><img src="https://latex.codecogs.com/svg.latex?U_{\text{tot}}=U_{\text{bron}}"
+								alt="U_{tot}=U_{bron}" /></p>
+
+						<p><img src="https://latex.codecogs.com/svg.latex?I_{\text{tot}}=I_R" alt="I_{tot}=I_R" /></p>
+
+
+						<b>stap 2:</b>
+						<p><img src="https://latex.codecogs.com/svg.latex?U_{\text{bron}}=I_R \cdot R_{\text{tot}}"
+								alt="U_{bron}=I_R \cdot R_{tot}" /></p>
+
+						<p><img src="https://latex.codecogs.com/svg.latex?I_R=U_{\text{bron}} \cdot R_{\text{tot}}"
+								alt="I_R=U_{bron} \cdot R_{tot}" /></p>
+
+						<b>stap 3:</b>
+						<p><img src="https://latex.codecogs.com/svg.latex?U_R=\frac{U_{\text{bron}}}{R_{\text{tot}}} \cdot R"
+								alt="U_R=\frac{U_{bron}}{R_{tot}} \cdot R" /></p>
+
+						<b>stap 4:</b>
+						<p><img src="https://latex.codecogs.com/svg.latex?U_R=\frac{R}{R_{\text{tot}}} \cdot U_{\text{bron}}"
+								alt="U_R=\frac{R}{R_{tot}} \cdot U_{bron}" /></p>
+
+						<p>Om te beginnen bij stap 1, geldt in een serieschakeling dat de totale spanning <img
+								src="https://latex.codecogs.com/svg.latex?U_{\text{tot}}" alt="U_{tot}" /> gelijk is aan
+							de
+							bronspanning.
+							Met behulp van de formule ohm <img
+								src="https://latex.codecogs.com/svg.latex?U_{\text{tot}}=I_{\text{tot}} \cdot R_{\text{tot}}"
+								alt="U_{tot}=I_{tot} \cdot R_{tot}" /> kan de formule&nbsp; <img
+								src="https://latex.codecogs.com/svg.latex?U_{\text{bron}}=I_R \cdot R_{\text{tot}}"
+								alt="U_{bron}=I_R \cdot R_{tot}" /> in stap 2 worden afgeleid. Vervolgens kan deze
+							formule
+							worden herschreven als <img
+								src="https://latex.codecogs.com/svg.latex?I_R=U_{\text{bron}} \cdot R_{\text{tot}}"
+								alt="I_R=U_{bron} \cdot R_{tot}" />. In stap 3 is deze herschreven formule gecombineerd
+							met
+							de formule <img
+								src="https://latex.codecogs.com/svg.latex?U_R=\frac{U_{\text{bron}}}{R_{\text{tot}}} \cdot R"
+								alt="U_R=\frac{U_{bron}}{R_{tot}} \cdot R" />. In stap 4 herschreven we de formule tot
+							<img src="https://latex.codecogs.com/svg.latex?U_R=\frac{R}{R_{\text{tot}}} \cdot U_{\text{bron}}"
+								alt="U_R=\frac{R}{R_{tot}} \cdot U_{bron}" />
+						</p>
+					</div>
+					<h3>Methode</h3>
+					<div>
+						<h4>R - T Grafiek</h4>
+						<div>
+							<p>Voor het testen van de optimale waarden is een simulatie opgezet. Om een simulatie te
+								creëren,
+								werd een formule gebruikt om de weerstand van de NTC te bepalen op basis van de
+								temperatuur.
+								Het
+								verband tussen de NTC en de weerstand kan goed worden gemodelleerd met een exponentiële
+								formule:
+								<code class="language-python">weerstandNTC = a * (temperatuurNTC - b) ** c </code>. In
+								deze
+								formule
+								zijn a, b
+								en c parameters die afhangen van de specifieke eigenschappen van de NTC. De parameters
+								worden
+								berekend met behulp van Python en de <code class="python">curve_fit</code>-functie van
+								de
+								SciPy-bibliotheek. In dit PO zijn alle python scripts gemaakt en gerunt in Spyder in <a
+									href="https://www.anaconda.com/download">Anaconda</a>. De code is te zien in figuur
+								4.
+							</p>
+
+							<pre><code class="language-python">import numpy as np
+from scipy.optimize import curve_fit
+
+# Gegeven metingen
+temperatuur = np.array([80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5])
+weerstand = np.array([136, 161.05, 165.41, 204, 255, 322.11, 382.5, 437.14, 510, 612, 612, 680, 765, 874.29, 874.29, 1020])
+
+# Definitie van de formule
+def formule(temperatuur, a, b, c):
+	return a * (temperatuur - b) ** c
+
+# Curve fit uitvoeren om a, b en c te berekenen
+popt, pcov = curve_fit(formule, temperatuur, weerstand, maxfev=10000000)
+
+# Uitpakken van de optimale waarden
+a_opt, b_opt, c_opt = popt
+
+# Afdrukken van de resultaten
+print("Optimale waarden:")
+print("a =", a_opt)
+print("b =", b_opt)
+print("c =", c_opt)</code></pre>
+							<p class="mt-2">
+								<em>Figuur 4: Script om optimale waarden voor de R - T Grafiek berekenen.</em>
+							</p>
+							<p>De optimale coëficiënten zijn:</p>
+							<pre><code class="language-python no-line-numbers">a = 4.28105730763011 * 10 ^ {159}
+b = -1989.129549693168
+c = -47.460116214251336</code></pre>
+							<p>Deze waardes werden in de formule gebruikt en er werd een grafiek van geplot. Deze
+								grafiek is
+								te
+								zien
+								in figuur 5.</p>
+							<img src="img/fig5.png" class="img-fluid" alt="">
+							<p class="mt-2">
+								<em>Figuur 5: Grafiek van de metingen uit figuur 2 die van het verband tussen de
+									weerstand en
+									temperatuur van de NTC weergeven. Met een blauwe lijn die in figuur 4 is
+									gemaakt.</em>
+							</p>
+						</div>
+						<h4>Simulatie</h4>
+						<div>
+							<p>Er werd een lijst opgesteld met temperaturen variërend van 0 tot en met 100 graden.
+								Vervolgens werd de weerstand van de NTC berekend met behulp van de eerder berekende
+								coëfficiënten. Met behulp van de wet van Ohm (U = I * R) werd de spanning over de
+								weerstand berekend, waarbij de stroomsterkte werd gemeten. Met andere woorden, de
+								gemeten spanning is gelijk aan de stroomsterkte vermenigvuldigd met de constante
+								weerstand. Daarna werd de grafiek geplot. De code hiervoor is te zien in figuur 6.
+							</p>
+							<pre><code class="language-python">from mpl_toolkits.axisartist.axislines import SubplotZero
+import numpy as np
+import matplotlib.pyplot as plt
+
+def run(bronSpanning, constanteWeerstand): # volt, Ohm
+
+	# Coëfficiënten voor de NTC-weerstand
+	a = 4.28105730763011 * 10 ** 159
+	b = -1989.129549693168
+	c = -47.460116214251336
+
+	# Bereken de weerstand van NTC bij temperaturen van 0 tot en met 100
+	temperatuurNTC = np.arange(0, 101, 1) # Celcius
+	weerstandNTC = a * (temperatuurNTC - b) ** c  # ohm
+
+	# Bereken de stroomsterkte en gemeten spanning
+	stroomsterkte = bronSpanning / (weerstandNTC + constanteWeerstand)
+	meetSpanning = stroomsterkte * constanteWeerstand
+
+	# Maak een figuur met een assenstelsel
+	fig = plt.figure(dpi = 500)
+	ax = SubplotZero(fig, 111)
+	fig.add_subplot(ax)
+	# instelling voor het assestelsel
+	ax.grid()
+	ax.set_title(f"bS: {bronSpanning}, cW: {constanteWeerstand}")
+	ax.set_xlabel("temperatuur(C)")
+	ax.set_ylabel("spanning(V)")
+	ax.set_ylim(0, 5)
+	ax.plot(temperatuurNTC, meetSpanning, linewidth=1)
+
+	for direction in ["xzero", "yzero"]:
+		# maak pijlen op het einde van elke axis
+		ax.axis[direction].set_axisline_style("-|>")
+	
+		# maak X en Y axis
+		ax.axis[direction].set_visible(True)
+
+	for direction in ["left", "right", "bottom", "top"]:
+		# verwijder de rand
+		ax.axis[direction].set_visible(False)
+
+	plt.show()
+
+# Test waarden voor bronspanning en weerstand constanteWeerstand
+run(6, 150)</code></pre>
+							<p class="mt-2">
+								<em>Figuur 6: code om een grafiek te plotten waar het verband tussen de temperatuur van
+									NTC
+									en
+									spanning over de constante weerstand te zien is.</em>
+							</p>
+							<p>Met de simulatie werd een grafiek gecreëerd die het verband tussen de spanning over
+								de constante weerstand en de temperatuur weergeeft. Deze simulatie maakte gebruik van
+								een bronspanning van 6V en een constante weerstand van 150Ω. In figuur 7 is de
+								grafiek te zien.</p>
+							<img src="img/fig7.png" class="img-fluid" alt="">
+							<p class="mt-2">
+								<em>Figuur 7: grafiek van het verband tussen de temperatuur van de NTC en de spanning
+									van de
+									constante
+									weerstand.</em>
+							</p>
+						</div>
+						<h4>Video maken</h4>
+						<div>
+							<p>Om een duidelijk beeld te krijgen van hoe de U-T grafiek in figuur 7 verandert bij
+								verschillende
+								constante weerstanden, werd er een video gemaakt waarbij de constante weerstand
+								geleidelijk
+								toenam
+								gedurende de video. Er werden eerst 151 frames gecreëerd van de U-T grafiek, waarbij een
+								bronspanning van 6V werd gebruikt en de constante weerstand van 0Ω tot en met 1500Ω
+								ging. In
+								figuur
+								8 is te zien hoe de code uit figuur 6 is aangepast om dit te doen.</p>
+							<pre><code class="language-python">from mpl_toolkits.axisartist.axislines import SubplotZero
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+
+def run(bronSpanning, constanteWeerstand): # volt, Ohm
+		#... dezelfde code als in figuur 6
+		#rode lijn op spanning = 5V
+		ax.axhline(y=5, color='r', linestyle=':') 
+    # In plaats van het figuur laten zien slaan we het op de plot op als 
+		# een afbeelding
+    filename = f"{i}.png"
+    plt.savefig(filename)
+    plt.close(fig)  # Sluit het figuur om geheugen vrij te maken
+
+# Maak een map aan om de plots op te slaan
+folder_name = "cWFrames"
+os.makedirs(folder_name, exist_ok=True)
+
+i = 0
+#een lijst voor alle waardens van de bronspanning
+cWArray = np.arange(0,1500,10)
+for cW in cWArray:
+    run(0, cW) 
+    # Verplaats de opgeslagen plot naar de map
+    filename = f"{i}.png"
+    os.rename(filename, os.path.join(folder_name, filename))
+    i += 1</code></pre>
+							<p class="mt-2"><em>figuur 8: code om de frames voor de video te maken.</em></p>
+							<p>
+								Toen we de code uit figuur 8 uitvoerden, kregen we de map "cWFrames" met daarin 151
+								afbeeldingen. Om een video van deze afbeeldingen te maken, hebben we de
+								<code>opencv-python</code>
+								bibliotheek gebruikt. Dit doen we in figuur
+								9.
+							</p>
+							<pre><code class="language-python">import cv2
+import os
+
+folder_path = "/Users/a144895/Library/Mobile Documents/com~apple~CloudDocs/Developer/python/natuurkundePOmodeleren/cWFrames"
+output_video_path = "cWVideo.mp4"
+
+# een gesorteerde lijst met alle frames in de map
+frames = [f for f in os.listdir(folder_path) if f.endswith('.png')]
+frames.sort(key=lambda x: int(''.join(filter(str.isdigit, x))))
+
+# Krijg de afmeting van de eerste frame
+first_frame_path = os.path.join(folder_path, frames[0])
+first_frame = cv2.imread(first_frame_path)
+height, width, _ = first_frame.shape
+
+# Create een video writer object
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+fps = 30  # Frames per seconde
+output_video = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
+
+# Loop over elk frame en schrijf het naar de video
+for frame_name in frames:
+	frame_path = os.path.join(folder_path, frame_name)
+	try:
+		frame = cv2.imread(frame_path)
+		output_video.write(frame)
+	except Exception as e:
+		print(f"Error processing frame {frame_name}: {str(e)}")
+
+# Sluit de video writer en sluit de video
+output_video.release()
+cv2.destroyAllWindows()
+
+print("Video klaar!")</code></pre>
+							<p class="mt"><em>figuur 9 - code om van frames een video maken</em></p>
+							<video src="cWVideo.mp4" id="cWVideo" class="img-fluid" controls>
+								Your browser does not support the video tag.
+							</video>
+							<p class="mt-2"><em>figuur 10 - video van de U - T grafiek wanneer de contante weerstand
+									veranderd (Je kan , en . gebruiken om een frame voor of
+									achteruit te
+									gaan)</em>
+							</p>
+							<p>
+								Toen we de code in figuur 9 uitvoerden, kregen we de video zoals weergegeven in figuur
+								10. In deze video konden we zien dat bij een constante weerstand van 450Ω de spanning
+								over de weerstand het meest gelijk liep. Daarom was de optimale weerstand voor deze NTC
+								450Ω.
+							</p>
+							<p> Om de optimale bronspanning te bepalen, pasten we de code uit figuur 8 aan, zodat de
+								bronspanning veranderde in plaats van de constante weerstand. De aangepaste code was te
+								vinden in figuur 11. De bronspanning varieerde van 1V tot 10V over 181 frames. .</p>
+							<pre><code class="language-python">#... dezelfde code als in figuur 8
+
+#een lijst voor alle waarden van de bronspanning
+bSArray = np.arange(1,10,0.05)
+for bS in bSArray:
+	run(bS, 450) 
+	# Verplaats de opgeslagen afbeelding naar de map
+	filename = f"{i}.png"
+	os.rename(filename, os.path.join(folder_name, filename))
+	i += 1</code></pre>
+							<p class="mt-2"><em>figuur 11 - code om de frames te maken wanneer de bronSpanning
+									veranderd</em>
+							</p>
+							<video src="bSVideo.mp4" id="bSVideo" class="img-fluid" controls>
+								Your browser does not support the video tag.
+							</video>
+							<p class="mt-2"><em>figuur 12 - video van de U - T grafiek wanneer de bronspanning
+									veranderd</em>
+							</p>
+
+							<p>Wanneer we de code in figuur 11 uitvoeren, krijgen we de video zoals weergegeven in
+								figuur 12. In deze video kunnen we zien dat bij een constante weerstand de bronspanning
+								van 6V ideaal is. </p>
+						</div>
+					</div>
+					<h3>Resultaten</h3>
+					<p>Na de video's in figuur 12 en 10 te hebben bekeken en vergeleken, hebben we besloten dat bij een
+						bronspanning 6 volt en een weerstand 450 ohm de ijkgrafiek heeft het meest lineaire verband en
+						krijgt de hoogste volt waarde bij 80 graden net onder de 5 volt. Als we de simulatie in figuur 6
+						runnen voor die waarden, krijgen we de grafiek in figuur 13.
+					</p>
+					<img src="img/fig13.png" class="img-fluid" alt="">
+					<p class="mt-2">
+						<em>Figuur 13: grafiek van het verband tussen de temperatuur van de NTC en de spanning van de
+							constante weerstand. bij de ideaal bronspanning en constante weerstand</em>
+					</p>
+				</div>
+				<h2 class="display-4 fs-1">Testen van sensor</h2>
+				<div>
+					<hr>
+					<h3>Materialen</h3>
+					<ul>
+						<li>NTC</li>
+						<li>Heet water</li>
+						<li>Ijsblokje</li>
+						<li>Ampèremeter</li>
+						<li>Voltmeter</li>
+						<li>Spanningsbron</li>
+						<li>Thermometer</li>
+						<li>Schakeldraden</li>
+						<li>Bekerglas</li>
+						<li>Waterkoker</li>
+						<li>Weerstand</li>
+					</ul>
+					<h3>Methode</h3>
+					<strong>Methode 1</strong>
+					<p>
+						Na de schakeling te hebben gebouwd zoals in figuur 14 geïllustreerd is, is een bekerglas
+						gevuld met
+						kokend water. In dit kokend water hebben wij de NTC (van de schakeling) en de thermometer
+						gedaan.
+						Vervolgens is bij elke temperatuurdaling van 5°C vanaf 80°C , is de ampère over de
+						schakeling en de
+						spanning over de ohmse weerstand gemeten. Deze metingen werden vervolgens genoteerd in een
+						tabel. Omdat
+						de temperatuur van het water erg langzaam daalt, is er rond de 60 graden steeds een
+						ijsklontje bij het
+						water toegevoegd. Hierdoor kon het water veel sneller afkoelen en kon de meting sneller
+						verricht worden.
+						Toen de temperatuur rond de 25 graden was zijn er erg veel ijsklontjes toegevoegd om de
+						temperatuur
+						verder te verlagen.
+					</p>
+					<br>
+					<strong>Methode 2</strong>
+					<p>
+						Na de schakeling te hebben gebouwd zoals in figuur 14 geïllustreerd is, is de ampère meter
+						uit de schakeling verwijderd. Vervolgens is er een klein bekerglas gevuld met kokend water,
+						hierin is de NTC(van de schakeling) en een thermometer gedaan. Deze thermometer werd
+						vastgehouden met de onderkant op dezelfde hoogte als de NTC. Vervolgens werd de temperatuur
+						van het water met 5 graden Celsius gedaald en werd de spanning over de Ohmse weerstand
+						genoteerd. Omdat net zoals bij de eerste meting de temperatuur erg langzaam daalt, is een
+						groter bekerglas gevuld met ijsklontjes en water. Hier werd gelijk na een meting het
+						kleinere bekerglas geplaatst zodat het koude water de buitenkant van het kleinere bekerglas
+						afkoelde. Na een paar seconden afgekoeld te zijn is het kleine bekerglas uit het grote
+						bekerglas verwijderd en is er geroerd waardoor het verkoelende water verspreid is over het
+						hele, kleine bekerglas. Vervolgens omdat de thermometer op dezelfde hoogte is als de NTC kon
+						er een nauwkeurigere temperatuur worden afgelezen. Na het aflezen van de temperatuur werd de
+						hierboven beschreven procedure herhaald tot de thermometer rond de 15 graden. Na de 15
+						graden zijn er direct ijsklontjes toegevoegd aan het kleine bekerglas om de temperatuur
+						verder te verlagen.
+					</p>
+					<img class="img-fluid" src="img/fig14.jpg" alt="">
+					<p><em>figuur 14 schaking van testen van NTC</em></p>
+					<h3>Resultaten</h3>
+					<strong>Meting 1</strong>
+					<p>
+						De resultaten laten duidelijk zien dat de tweede meting aanzienlijk nauwkeuriger is dan de
+						eerste.
+						Tijdens de eerste metingen waren we duidelijk minder zorgvuldig in ons werk. In een poging om de
+						temperatuur sneller te verlagen, voegden we ijsklontjes toe aan het water. Helaas resulteerde
+						dit in
+						een ongelijkmatige daling van de temperatuur. De bovenste laag van het water werd sneller
+						gekoeld
+						dan de onderste laag, waardoor er een ongewenst temperatuurverschil ontstond. Na het meten van
+						de
+						eerste resultaten, figuur 15 en 17, vonden wij dat wij niet nauwkeurig genoeg hadden gewerkt.
+						Dus
+						wij hadden besloten om een tweede meting te doen.
+						Bovendien werd er een fout gemaakt bij het plaatsen van de thermometer. Deze stond niet op het
+						juiste niveau en was niet correct uitgelijnd met de NTC van het meetsysteem. Deze onnauwkeurige
+						positionering van de thermometer resulteerde in een minder precieze meting van de temperatuur.
+					</p>
+					<br>
+					<strong>Meting 2</strong>
+					<p>
+						De resultaten van de tweede meting waren overduidelijk beter dan die van de eerste. We pasten
+						dezelfde methode toe als voorheen, waarbij we gebruik van ijsklontjes hebben gemaakt om de
+						temperatuur sneller te laten dalen. Deze keer namen we extra maatregelen om de procedure
+						gecontroleerd te maken en zelf te bepalen wanneer we wilden dat de temperatuur sneller zou
+						afnemen.
+						Om te voorkomen dat de temperatuur onregelmatig zou afnemen en het water op verschillende
+						plaatsen
+						verschillende temperaturen zou hebben, dompelen we het bekerglas regelmatig onder in een groter
+						bakje ijswater. Door dit te doen, konden we op een gecontroleerde manier werken en de snelheid
+						van
+						de temperatuurdaling bepalen. Bovendien roerden we elke keer dat we het bekerglas in het
+						ijswater
+						dompelden, het water door. Dit zorgde ervoor dat de temperatuur gelijkmatig verdeeld werd en
+						overal
+						in het water hetzelfde was.
+						Daarnaast hebben we extra aandacht besteed aan de positionering van de thermometer. We plaatsten
+						deze precies op het niveau van de NTC in het water. Dit zorgde voor een veel nauwkeurigere
+						meting
+						dan bij de eerste poging. Door de thermometer op de juiste positie te plaatsen, konden we de
+						temperatuur van het water op een veel preciezere manier aflezen. Deze resultaten komen dicht in
+						de buurt van de simulatie, zoals te zien is in de grafiek op figuur 17.
+					</p>
+
+					<p>De resultaten van beiden methodes hebben we genoteerd in figuur 15 en geplot in figuur 16</p>
+					<table class="table table-bordered">
+						<thead class="table-light">
+							<tr>
+								<th>Temperatuur (℃)</th>
+								<th>Spanning methode 2 (U)</th>
+								<th>Spanning methode 1 (U)</th>
+							</tr>
+						</thead>
+
+						<tbody class="table-group-divider">
+							<tr>
+								<td>80</td>
+								<td>4.30</td>
+								<td>3.80</td>
+							</tr>
+							<tr>
+								<td>75</td>
+								<td>4.20</td>
+								<td>4.10</td>
+							</tr>
+							<tr>
+								<td>70</td>
+								<td>4.10</td>
+								<td>4.10</td>
+							</tr>
+							<tr>
+								<td>65</td>
+								<td>3.90</td>
+								<td>3.90</td>
+							</tr>
+							<tr>
+								<td>60</td>
+								<td>3.70</td>
+								<td>3.70</td>
+							</tr>
+							<tr>
+								<td>55</td>
+								<td>3.50</td>
+								<td>3.80</td>
+							</tr>
+							<tr>
+								<td>50</td>
+								<td>3.30</td>
+								<td>3.50</td>
+							</tr>
+							<tr>
+								<td>45</td>
+								<td>3.10</td>
+								<td>3.40</td>
+							</tr>
+							<tr>
+								<td>40</td>
+								<td>2.90</td>
+								<td>3.00</td>
+							</tr>
+							<tr>
+								<td>35</td>
+								<td>2.70</td>
+								<td>2.90</td>
+							</tr>
+							<tr>
+								<td>30</td>
+								<td>2.60</td>
+								<td>2.50</td>
+							</tr>
+							<tr>
+								<td>25</td>
+								<td>2.50</td>
+								<td>2.10</td>
+							</tr>
+							<tr>
+								<td>20</td>
+								<td>2.30</td>
+								<td>1.80</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>2.10</td>
+								<td>1.60</td>
+							</tr>
+						</tbody>
+					</table>
+					<p><em>Figuur 15: tabel van de NTC meting 1 & 2</em></p>
+					<img class="img-fluid" src="img/fig16.png" alt="">
+					<p><em>Figuur 16: grafiek van de NTC meting 1 & 2</em></p>
+				</div>
+				<h2 class="display-4 fs-1">Evaluatie</h2>
+				<div>
+					<hr>
+					<h3>Validiteit</h3>
+					<p>Vergelijken van de simulatie van de ijkgrafiek en de resultaten uit de metingen.</p>
+					<img class="img-fluid" src="img/fig17.png" alt="">
+					<p><em>Figuur 17: grafiek van de meetresultaten uit figuur 15 en de simulatie uit figuur 6.</em></p>
+					<p>Zoals in Figuur 17 te zien is, is de simulatie van de ijkgrafiek bij een bronspanning van 6V en
+						een constante weerstand van 450Ω vrijwel identiek aan
+						meting 2. </p>
+					<h3>Betrouwbaarheid</h3>
+					<p>Onze zelfgemaakte sensor heeft bewezen zeer betrouwbaar te zijn, aangezien de gemeten ijkgrafiek
+						vrijwel identiek is aan de theoretische ijkgrafiek. Dit betekent dat de sensor consistent en
+						accuraat werkt, en dat de gemeten resultaten nauwkeurig overeenkomen met de verwachte waarden.
+					</p>
+				</div>
+				<h2 class="display-4 fs-1">Bonus: Regelsysteem temperatuur sensor</h2>
+				<div>
+					<hr>
+					<h3>Doel</h3>
+					<p>Het doel van onze schakeling is om aan te geven wanneer de temperatuur lager is dan 40°C of hoger
+						dan 80°C. Dit doet de schakeling door een alarm af te laten gaan en een LED aan te zetten.</p>
+					<h3>Ontwerp regelsysteem</h3>
+					<div id="fig18" onclick="document.getElementById('fig18').classList.remove('big')">
+						<img src="img/fig18.png" class="img-fluid" alt="">
+					</div>
+					<div class="d-flex justify-content-between">
+						<p><em>Figuur 18 - De schakeling van het systeembord</em></p>
+						<button type="button" class="btn btn-primary right-align"
+							onclick="document.getElementById('fig18').classList.add('big')">Vergroot afbeelding</button>
+					</div>
+					<p>Wanneer de variabele spanning hoger is dan 4,3V (80°C) gaat een LED 1 branden.</p>
+					<p>Wanneer de variabele spanning lager is dan 3,0V (40°C) gaat een LED 2 branden.</p>
+					<p>Wanneer de variabele spanning lager is dan 3,0V (40°C) of hoger is dan 4,3V (80°C) dan gaat er
+						een timer lopen wanneer 5 (0101 binair) seconde bereikt dan geheugencel “aan” die gaat weer uit
+						wanneer de spanning tussen de 3,0V en 4,3V is. Wanneer de geheugencel aan staat gaat er om de
+						halve seconde (1Hz) de zoemer aan zodat je kan kijken wat er mis is en als LED 1 brandt zet je
+						de brander lagen en als LED 2 brandt zet je de brander hoger.
+					</p>
+					<h3>Potentie</h3>
+					<p>Onze schakeling kan worden gebruikt om aan te geven wanneer de temperatuur van de brander
+						veranderd moet worden
+						tijdens het maken van methamphetamine. Het hele proces van het maken van methamphetamine is een
+						gevaarlijk. Daarom is het van cruciaal
+						belang om de temperatuur zorgvuldig te controleren. </p>
+					<p>Een van de belangrijkste stappen is de reactie waarbij pseudo-efedrine wordt omgezet in
+						methamphetamine. Deze reactie kan worden vertegenwoordigd door de volgende vereenvoudigde
+						reactievergelijking:
+					</p>
+					<p><img src="https://latex.codecogs.com/svg.latex?C_{10}H_{15}NO&space;&plus;&space;CH_{3}COOH&space;\rightarrow&space;C_{10}H_{15}N(CH_{3})&space;&plus;&space;H_{2}O"
+							alt="C_{10}H_{15}NO&space;&plus;&space;CH_{3}COOH&space;\rightarrow&space;C_{10}H_{15}N(CH_{3})&space;&plus;&space;H_{2}O" />
+					</p>
+
+					<p>Hier zie je dat <a href="https://chat.openai.com/share/afa3e21a-d519-4104-8b81-64ad5c8bfaa2"
+							target="_blank">pseudo-efedrine</a> (<img
+							src="https://latex.codecogs.com/svg.latex?C_{10}H_{15}NO" alt="C_{10}H_{15}NO" />) reageert
+						met <a href="https://www.labshop.nl/azijnzuur-995/" target="_blank">azijnzuur</a> (<img
+							src="https://latex.codecogs.com/svg.latex?CH_{3}COOH" alt="CH_{3}COOH" />) en een
+						katalysator <a href="https://www.labshop.nl/zwavelzuur-96-nvp/" target="_blank">zwavelzuur</a>
+						(<img src="https://latex.codecogs.com/svg.latex?H_{2}SO_{4}" alt="H_{2}SO_{4}" />) om
+						methamphetamine (<img src="https://latex.codecogs.com/svg.latex?C_{10}H_{15}N(CH_{3})"
+							alt="C_{10}H_{15}N(CH_{3})" />) en met water (<img
+							src="https://latex.codecogs.com/svg.latex?H_{2}O" alt="H_{2}O" />) te vormen. Om
+						nevenreacties of zelfs explosies te voorkomen, wordt de temperatuur altijd onder de 80 graden
+						gehouden. Op deze manier vermijden we onvoorziene gebeurtenissen en kunnen we zuiverdere
+						methamphetamine produceren. Wanneer de temperatuur lager is dan 40 graden dan gaat het proces te
+						langzaam. Dus de temperatuur moet tussen de 40 en 80 graden blijven.</p>
+				</div>
+				<h2 class="display-4 fs-1">Website</h2>
+				<div>
+					<hr>
+					<p>Deze website hebben we gemaakt met .html, .css en .js in <a
+							href="https://code.visualstudio.com">visual studio code</a> van mircosoft. We hebben de
+						<a href="https://getbootstrap.com/docs/5.0/getting-started/download/">bootstrap</a> bibliotheek
+						gebruikt voor de layout. We hebben de <a
+							href="https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript&plugins=line-numbers+show-language+toolbar+copy-to-clipboard">Prism</a>
+						bibliotheek gebruikt voor de
+						code blokken. We gebruiken de <a href="https://editor.codecogs.com">codecorgs</a> API om LaTeX voor formules gebruikt.
+					</p>
+					<p>Hier kun je het hele PO downloaden inclusief de python script's, video frames en de website.</p>
+					<button class="btn btn-primary">Download</button>
+				</div>
+				<div id="overscroll" style="height: 30vh;"></div>
+			</div>
+		</div>
+	</main>
+	<script src="prism.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
